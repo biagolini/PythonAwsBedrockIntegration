@@ -5,8 +5,8 @@ Read the transcription carefully.
 
 Return only the user's preferred name or nickname in the format below. Do not add explanations, descriptions, or other text:
 
-"PREFERRED_USER_ALIAS = {{DETECTED_NAME}}"
+{{"PREFERRED_USER_ALIAS": "{{DETECTED_NAME}}"}}
 
 Special conditions:
-1) If the person responds with an offensive or inappropriate name, return the string: "PREFERRED_USER_ALIAS = BAD_INPUT"
-2) If the user indicates they prefer not to be called by a specific name or nickname, return the string: "PREFERRED_USER_ALIAS = PREFER_NOT_ANSWER"
+1) If the person responds with an offensive or inappropriate name, return the JSON: {{"PREFERRED_USER_ALIAS": "BAD_INPUT"}}
+2) If the user indicates they prefer not to be called by a specific name or nickname, return the JSON: {{"PREFERRED_USER_ALIAS": "PREFER_NOT_ANSWER"}}

@@ -1,6 +1,16 @@
 # AWS Bedrock Model Invocation for Preferred User Alias Extraction
 
-This repository provides a simple demonstration of integrating Python with AWS Bedrock to invoke foundation models, specifically leveraging the Meta Llama 3 8B Instruct model. The project showcases how to use AWS Bedrock's conversational AI API in Python, processing text transcripts to extract the user’s preferred alias or nickname. This serves as an example of how to access Bedrock's capabilities programmatically through the `boto3` SDK and configure an intelligent assistant application.
+This repository provides a simple demonstration of integrating Python with AWS Bedrock to invoke foundation models, specifically leveraging the Meta Llama 3 8B Instruct model. The project showcases how to use AWS Bedrock's AI models programmatically through the `boto3` SDK, processing text transcripts to extract the user’s preferred alias or nickname, and returns results in a JSON-like format to facilitate integration with other tools.
+
+## Choosing `InvokeModel` vs. `Converse`
+
+AWS Bedrock provides two main methods for interacting with foundation models: `Converse` and `InvokeModel`. 
+
+- **`Converse`** maintains conversational context across multiple interactions, which is ideal for chatbot applications where maintaining context is important.
+- **`InvokeModel`**, used in this demo, is intended for single, stateless requests where maintaining conversation context is not required.
+
+In this project, we utilize the `InvokeModel` API as the task is straightforward and doesn't benefit from context continuity. This choice makes integration simpler and avoids unnecessary overhead.
+
 ## Prerequisites
 
 To run this project, you’ll need:
@@ -11,6 +21,7 @@ To run this project, you’ll need:
 ### References
 
 This project was developed based on the following resources:
+- [AWS Bedrock Documentation for Amazon Bedrock Runtime](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_Operations_Amazon_Bedrock_Runtime.html)
 - [AWS Boto3 Documentation for Bedrock Invoke Model API](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/bedrock-runtime/client/invoke_model.html)
 - [AWS Code Library Bedrock Runtime Python Examples](https://docs.aws.amazon.com/code-library/latest/ug/python_3_bedrock-runtime_code_examples.html)
 
@@ -31,7 +42,7 @@ The project uses a prompt template stored in a `prompt.txt` file located in the 
 #### Key Points:
 - **Document Tags**: The tags `<DOCUMENT>` and `<TRANSCRIPTION>` structure the input as a formatted document and transcription. These tags help the model interpret that it’s working within a document-based structure, guiding it to "read" and analyze sections in a detailed, organized way.
   
-- **Output Format**: The prompt includes a predefined output format with `"PREFERRED_USER_ALIAS = ..."`. This output structure instructs the model to follow a consistent format in the response, ensuring that results are presented accurately.
+- **Output Format**: The prompt includes a predefined output format in a JSON-like structure `{"PREFERRED_USER_ALIAS": "DETECTED_NAME"}`. This output structure ensures consistency, making the response easier to integrate with other tools and platforms.
 
 Please refer to `prompt.txt` for the complete content of this template.
 
@@ -53,11 +64,13 @@ python main.py
 
 ### Expected Output
 
-The script will print the user's preferred name or nickname based on the transcription provided. The expected output format is:
+The script will print the user's preferred name or nickname based on the transcription provided. The expected output format is a JSON-like structure:
 
-```plaintext
-PREFERRED_USER_ALIAS = {DETECTED_NAME}
+```json
+{"PREFERRED_USER_ALIAS": "DETECTED_NAME"}
 ```
+
+This structured output enables easy integration with other applications or platforms.
 
 ## Error Handling
 

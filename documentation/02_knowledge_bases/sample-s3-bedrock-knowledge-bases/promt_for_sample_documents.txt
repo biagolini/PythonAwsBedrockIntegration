@@ -1,0 +1,21 @@
+I'm currently studying Retrieval-Augmented Generation (RAG) on AWS Bedrock and would like to test this service by generating detailed profiles of fictional famous individuals. These people do not need to be real, as this is solely for testing purposes on AWS.
+
+Please create **fictional characters**:
+
+1. One **athlete** with a **name that begins with "A"** (character should be female)
+2. One **athlete** with a **name that begins with "B"** (character should be male)
+3. One **athlete** with a **name that begins with "C"** (character should be female)
+4. One **musician** with a **name that begins with "D"** (character should be male)
+5. One **musician** with a **name that begins with "E"** (character should be male)
+6. One **musician** with a **name that begins with "F"** (character should be female)
+
+Each character's description should be presented as a separate text file, formatted in markdown within a code block.
+
+Each character profile should include:
+- A **name** for the character, and for the musician, also a **stage name**.
+- A **brief biography** that highlights their professional journey, detailing their style, inspirations, and unique qualities.
+- **Key achievements**, including awards, recognitions, or notable milestones.
+- A list of **accomplishments or works** that contributed to their fame, such as iconic performances, memorable matches, or popular albums/songs.
+- Some **personal or family background** details to add depth to the character, such as family influences or personal values.
+
+Ensure that all content is written in English and formatted as markdown within a code block for each character profile.

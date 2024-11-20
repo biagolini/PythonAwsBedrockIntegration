@@ -1,0 +1,19 @@
+{
+  "messageVersion": "1.0",
+  "function": "wikipedia-link-finder",
+  "parameters": [
+    { "name": "celebrity_name", "type": "string", "value": "Muhammad Ali" },
+    { "name": "language", "type": "string", "value": "en" }
+  ],
+  "sessionId": "123456789012345",
+  "agent": {
+    "name": "notable-celebrity-agent",
+    "version": "DRAFT",
+    "id": "A1B2C3D4E5",
+    "alias": "FAKEALIAS1"
+  },
+  "actionGroup": "wikipedia-link-finder",
+  "sessionAttributes": {},
+  "promptSessionAttributes": {},
+  "inputText": "Give me the wikipedia link for Muhammad Ali"
+}

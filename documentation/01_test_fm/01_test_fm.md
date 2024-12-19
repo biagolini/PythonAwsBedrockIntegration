@@ -22,6 +22,16 @@ To run this project, you’ll need:
 - AWS credentials configured with access to the Bedrock service.
 - Python 3, and the `boto3` and `botocore` libraries installed.
 
+## Listing Available Models
+
+To list all foundation models available for testing, execute the following command in your terminal:
+
+```sh
+aws bedrock list-foundation-models > models.json
+```
+
+This command retrieves a list of models and saves the output to a file named `models.json`.
+
 ### References
 
 This project was developed based on the following resources:

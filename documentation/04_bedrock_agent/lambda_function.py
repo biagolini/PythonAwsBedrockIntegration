@@ -55,22 +55,22 @@ def log_to_s3(folder='unknown_agent', event=None, response=None, error=None):
     except Exception as e:
         print(f"Error logging to S3: {str(e)}")
 
-def get_wikipedia_url(person_name, language='en'):
+def get_wikipedia_url(celebrity_name, language='en'):
     """
     Returns the link to the Wikipedia page for a famous person, if it exists.
 
-    :param person_name: Name of the famous person
+    :param celebrity_name: Name of the famous person
     :param language: Language of the Wikipedia page
     :return: URL to the Wikipedia page or a message indicating it was not found
     """
     user_agent = 'LambdaWikipediaLinkFinder (youremail@example.com)'
     wiki = wikipediaapi.Wikipedia(user_agent=user_agent, language=language)
-    page = wiki.page(person_name)
+    page = wiki.page(celebrity_name)
     
     if page.exists():
         return page.fullurl
     else:
-        return f"The Wikipedia page for '{person_name}' was not found."
+        return f"The Wikipedia page for '{celebrity_name}' was not found."
 
 def lambda_handler(event, context):
     """

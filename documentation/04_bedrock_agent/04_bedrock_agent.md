@@ -208,7 +208,7 @@ The provided code includes an optional logging feature that exports input events
 
 1. Stay on the **Agent Builder** page (created in the previous step). Scroll to the **Action Groups** section and click the **Add** button to create a new action group.
 2. Provide the following details in the **Action group details** section:
-   - **Action Group Name:** `wikipedia-link-retrieval`.
+   - **Action Group Name:** `wikipedia`.
    - **Description (optional):** `Retrieve Wikipedia page links for celebrities based on user input.`
 3. In the **Action group type** section, choose **Define with Function Details** to configure the action group with specific logic.
 4. In the **Action group invocation** section:
@@ -218,7 +218,7 @@ The provided code includes an optional logging feature that exports input events
 5. In the **Action Group Function Details** section, choose `JSON Editor` and input the following JSON:
 ```
 {
-  "name": "wikipedia-finder-function",
+  "name": "wikifinder",
   "description": "A function that searches for and returns Wikipedia links for the given celebrity.",
   "parameters": [
     {
@@ -262,7 +262,7 @@ The provided code includes an optional logging feature that exports input events
 1. Stay on the **Agent Builder** page (created in the previous step). Scroll to the **Knowledge Bases** section and click the **Add** button to attach a knowledge base.
 2. Select an existing knowledge base (e.g., one created about athletes).
 3. Provide usage instructions:
-   - Example: `Use this knowledge base to answer questions related to athletes.`
+   - Example: `If the user queries a person unknown to the foundation model, check this knowledge base to see if they're a athletes celebrity and get more info.`
 4. Click **Save** to apply the configuration.
 
 ![Configure Knowledge Bases.](./img/bedrock_06.png)
@@ -310,8 +310,6 @@ The provided code includes an optional logging feature that exports input events
 
 **Tip:** You can update the alias to point to a different version in the future without modifying the application logic, enabling smooth rollbacks or upgrades.
 
-
-
 ---
 
 ## Step 11: Testing the Agent
@@ -323,8 +321,18 @@ The provided code includes an optional logging feature that exports input events
 3. Validate different functionalities, such as:
    - **Foundation Model Base Query**: `Who is Michael Jordan?`
    - **Knowledge Base Query**: `Who is Alicia Torrence?`
-   - **Lambda Query**: `Me entregue o link da página do Wikipedia do Pelé.`
-4. If you found issues with Guardrails, you can edit guardrail to check how response changes after its edits.
+   - **Lambda Query**:  
+     - Test the query in Portuguese: `Me entregue o link da página do Wikipedia do Pelé.`  
+     - Test the query in English: `Provide me with the link to Pelé's Wikipedia page.`  
+     - Observe if the model automatically identifies the language of the request and provides the appropriate page.  
+     - If the model cannot determine the desired language, explicitly request the page in a specific language. For example:  
+       - Portuguese: `Me entregue o link da página do Wikipedia do Pelé em português.`  
+       - English: `Provide me with the link to Pelé's Wikipedia page in English.`  
+       - Spanish: `Dame el enlace a la página de Wikipedia de Pelé en español.`
+   - **Guardrail Validation Query**: `Who is Michael Phelps?`
+4. If you encounter issues with Guardrails, you can edit the guardrail configuration to observe how the response changes after the edits.
+
+
 
 ![Testing the Agent.](./img/bedrock_12.png)
 

@@ -1,0 +1,18 @@
+{
+  "node": {
+    "name": "OrderStatusChecker",
+    "inputs": [
+      {
+        "name": "codeHookInput",
+        "expression": "$.data.orderId",
+        "value": "1099258a-9ae4-4da1-ac1a-0ea516c10210",
+        "type": "STRING"
+      }
+    ]
+  },
+  "flow": {
+    "aliasId": "TSTALIASID",
+    "arn": "arn:aws:bedrock:us-east-1:471112955224:flow/V1VO2VSPMT"
+  },
+  "messageVersion": "1.0"
+}

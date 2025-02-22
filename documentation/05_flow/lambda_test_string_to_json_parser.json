@@ -1,0 +1,18 @@
+{
+  "node": {
+    "name": "JSONParser",
+    "inputs": [
+      {
+        "name": "codeHookInput",
+        "expression": "$.data",
+        "value": "{\n  \"intent\": \"ORDER_STATUS\",\n  \"language\": \"Portuguese\",\n  \"order_id\": \"1099258a-9ae4-4da1-ac1a-0ea516c10210\"\n}",
+        "type": "STRING"
+      }
+    ]
+  },
+  "flow": {
+    "aliasId": "TSTALIASID",
+    "arn": "arn:aws:bedrock:us-east-1:123456789012:flow/V1VO2VSPMT"
+  },
+  "messageVersion": "1.0"
+}
